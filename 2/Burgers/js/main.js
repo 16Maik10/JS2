@@ -1,5 +1,6 @@
 "use strict"
 
+//[price, calories] for each position
 const menu = {
     small: [50, 20],
     big: [100, 40],
@@ -10,20 +11,26 @@ const menu = {
     mayonnaise: [20, 5]
 }
 
-let totalCost, totalCalory;
+class Hamburger{
+    constructor(params){
+        this.paramsOfOrder = params;
+        this.totalCalory = 0;
+        this.totalCost = 0;
+    }
 
-function cookBurger(){
-    totalCost = 0;
-    totalCalory = 0;
-    document.querySelectorAll('input:checked').forEach(el => 
-        {totalCost+=menu[el.value][0];          
-        totalCalory+=menu[el.value][1]});     
+    cookBurger(){
+        this.paramsOfOrder.forEach(el => {this.totalCost+=menu[el.value][0]; this.totalCalory+=menu[el.value][1];})
+        return `Your burger costs ${this.totalCost} rub. (${this.totalCalory} calories)`;
+    }
 }
 
 const resultEl = document.querySelector('.result');
 
+
+
 document.querySelector('.burger').addEventListener('submit', (event)=>{
     event.preventDefault();
-    cookBurger();
-    resultEl.innerHTML = `Your burger costs ${totalCost} (${totalCalory} calories)`
+    const allChoises = document.querySelectorAll('input:checked');
+    const currentOrder = new Hamburger(allChoises);
+    resultEl.innerHTML = currentOrder.cookBurger();
 })
