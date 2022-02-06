@@ -1,0 +1,31 @@
+.burger {
+  padding: 10px 20px;
+  width: fit-content;
+}
+
+.stepOfBurger {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.stepOfBurger__desc {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+input,
+label {
+  margin-right: 10px;
+}
+
+.submit {
+  width: 100%;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+.result {
+  color: green;
+  font-size: 20px;
+  margin-left: 25px;
+}

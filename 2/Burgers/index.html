@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burger</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <form class="burger" action="#">
+        <div class="stepOfBurger">
+          <p class="stepOfBurger__desc">Choose size of your burger:</p>
+          <input type="radio" name="size" id="size1" value="small" required />
+          <label for="size1">Small</label>
+          <input type="radio" name="size" id="size2" value="big" />
+          <label for="size2">Big</label>
+        </div>
+        <div class="stepOfBurger">
+          <p class="stepOfBurger__desc">Choose toppings:</p>
+          <input
+            type="radio"
+            name="topping"
+            id="topping1"
+            value="cheese"
+            required
+          /><label for="topping1">Cheese</label
+          ><input
+            type="radio"
+            name="topping"
+            id="topping2"
+            value="salad"
+          /><label for="topping2">Salad</label
+          ><input
+            type="radio"
+            name="topping"
+            id="topping3"
+            value="potato"
+          /><label for="topping3">Potato</label>
+        </div>
+        <div class="stepOfBurger">
+          <p class="stepOfBurger__desc">Extra:</p>
+          <input type="checkbox" name="extra" id="extra1" value="spice" /><label
+            for="extra1"
+            >Spice</label
+          ><input
+            type="checkbox"
+            name="extra"
+            id="extra2"
+            value="mayonnaise"
+          /><label for="extra2">Mayonnaise</label>
+        </div>
+        <button class="submit">cook</button>
+      </form>
+      <p class="result"></p>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>
