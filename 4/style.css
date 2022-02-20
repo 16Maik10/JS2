@@ -1,0 +1,28 @@
+.check-in {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 20px;
+}
+
+input,
+textarea {
+  display: block;
+  outline: none;
+  margin: 5px 0 20px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+}
+
+.incorrect {
+  border: 3px solid red;
+}
+
+.invisible {
+  display: none;
+}
+
+p {
+  color: red;
+  margin: 5px 0;
+}

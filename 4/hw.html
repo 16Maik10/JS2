@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeWork</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="#" class="check-in">
+      <h3>Check In</h3>
+      <label for="name">Имя</label>
+      <p class="name-hint invisible">Имя должно состоять только из букв</p>
+      <input type="text" name="name" id="name" placeholder="Ivan" />
+      <label for="tel">Телефон</label>
+      <p class="tel-hint invisible">
+        Телефон нужно написать в формате +7(XXX)XXX-XXXX
+      </p>
+      <input type="tel" name="tel" id="tel" placeholder="+7(XXX)XXX-XXXX" />
+      <label for="email">E-mail</label>
+      <p class="email-hint invisible">
+        Можно использовать только mymail@mail.ru, my.mail@mail.ru или
+        my-mail@mail.ru
+      </p>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="mymail@mail.ru"
+      />
+
+      <label for="text">Message</label>
+      <textarea name="text" id="text" cols="30" rows="10"></textarea>
+      <button type="submit">Check In</button>
+    </form>
+    <script>
+      //1-e задание
+      let bigText = `One: 'Hi Mary.' Two: 'Oh, hi.'
+One: 'How are you doing?'
+Two: 'I'm doing alright. How about you?'
+One: 'Not too bad. The weather is great isn't it?'
+Two: 'Yes. It's absolutely beautiful today.'
+One: 'I wish it was like this more frequently.'
+Two: 'Me too.'
+One: 'So where are you going now?'
+Two: 'I'm going to meet a friend of mine at the department store.'
+One: 'Going to do a little shopping?'
+Two: 'Yeah, I have to buy some presents for my parents.'
+One: 'What's the occasion?'
+Two: 'It's their anniversary.'
+One: 'That's great. Well, you better get going. You don't want to be late.'
+Two: 'I'll see you next time.'
+One: 'Sure. Bye.'`;
+      console.log(bigText); // default
+
+      console.log(bigText.replace(/'/g, '"')); // all ' to "
+
+      //2-e задание
+      console.log(bigText.replace(/\B'/g, '"')); // correct replace of '
+
+      //3-e задание /^\++7{1}+\(+[0-9]{3}+\)+[0-9]{3}+-+[0-9]{4}$/
+
+      class FormTest {
+        constructor(
+          name = /^[a-zа-я]+$/i,
+          tel = /^(\+7)(\([0-9]{3}\))([0-9]{3})-([0-9]{4})$/,
+          email = /^my(\.|-)?mail@mail.ru$/
+        ) {
+          this.name = name;
+          this.tel = tel;
+          this.email = email;
+          this.init();
+        }
+
+        init() {
+          document
+            .querySelector("form.check-in")
+            .addEventListener("submit", (e) => {
+              e.preventDefault();
+              Array.from(
+                document.querySelectorAll("form.check-in > input")
+              ).forEach((el) => {
+                const hintEl = document.querySelector(`p.${el.id}-hint`);
+                if (this[el.id].test(el.value)) {
+                  el.classList.remove("incorrect");
+                  hintEl.classList.add("invisible");
+                  return;
+                }
+                el.classList.add("incorrect");
+                hintEl.classList.remove("invisible");
+              });
+            });
+        }
+      }
+
+      let test1 = new FormTest();
+    </script>
+  </body>
+</html>
