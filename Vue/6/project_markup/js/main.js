@@ -10,15 +10,16 @@ const app = new Vue({
         cartUrl: '/getBasket.json',
         cartItems: [],
         filtered: [],
-        imgCart: 'https://placehold.it/50x100',
+        imgCart: 'https://via.placeholder.com/50x100',
         products: [],
-        imgProduct: 'https://placehold.it/200x150',
+        imgProduct: 'https://via.placeholder.com/200x150',
         error: false
     },
     methods: {
         getJson(url){
             return fetch(url)
                 .then(result => result.json())
+                .catch(()=>this.error = true)
                 
         },
         addProduct(item){
